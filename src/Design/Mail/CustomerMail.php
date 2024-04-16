@@ -2,30 +2,23 @@
 
 namespace Design\Mail;
 
-class CustomerMail implements Mail
+use Design\Mailable\Mailable;
+use Design\Mailable\CustomerMailable;
+
+/**
+ * Factory
+ * 具象クリエーター （Concrete Creator） は、 異なる型のプロダクトを返すように、 基底クラスのファクトリー・メソッドを上書きします。
+ * FactoryMethodをOverrideしてProductを返す
+ */
+class CustomerMail extends Mail
 {
-    private string $body;
-    private string $to;
-
-    public function __construct()
+    /**
+     * FactoryMethod
+     * Productを返す
+     * @return Mailable
+     */
+    public function createMailable(): Mailable
     {
-        $this->to = 'customer@example.com';
-    }
-
-    public function send(): bool
-    {
-        print('<br/>');
-        print('顧客用のメールを送信します');
-        print('<br/>');
-        print('宛先は' . $this->to . 'です');
-        print('<br/>');
-        print('body : ' . $this->body);
-        print('<br/>');
-        return true;
-    }
-
-    public function setMessage(string $message): void
-    {
-        $this->body = $message;
+        return new CustomerMailable();
     }
 }
