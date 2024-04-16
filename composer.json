@@ -1,0 +1,19 @@
+{
+    "name": "y/design",
+    "description": "factory",
+    "type": "project",
+    "require": {
+        "nesbot/carbon": "^3.2"
+    },
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Design\\": "src/Design"
+        }
+    },
+    "authors": [
+        {
+            "name": "pm"
+        }
+    ]
+}
